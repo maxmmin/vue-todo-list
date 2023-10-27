@@ -9,6 +9,9 @@
             <button class="todo-creation-form__submit-btn"><AddIcon css-anchor="todo-creation-form__add-icon" fill="white"/></button>
           </form>
         </div>
+        <div class="todo-component__todo-list-wrapper">
+          <TodoList :todo-list="todoList"/>
+        </div>
       </div>
     </div>
   </div>
@@ -20,10 +23,12 @@
 import {CoreTodoComponentData, TodoItem} from "@/types/todoTypes";
 import {defineComponent} from "vue";
 import AddIcon from "@/components/icons/AddIcon.vue";
+import TodoList from "@/components/TodoList.vue";
 
 export default defineComponent({
     name: 'TodoCore',
     components: {
+      TodoList,
       AddIcon
     },
     data (): CoreTodoComponentData {
