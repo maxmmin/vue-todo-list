@@ -10,7 +10,10 @@
           </form>
         </div>
         <div class="todo-component__todo-list-wrapper">
-          <TodoList :todo-list="todoList"/>
+          <TodoList @toggleTodoStatus="toggleTodoItemStatus"
+                    @removeTodo="removeTodoItem"
+                    :todo-list="todoList"
+          />
         </div>
       </div>
     </div>
@@ -80,6 +83,7 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
   }
 
   .todo-component {

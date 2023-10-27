@@ -1,9 +1,9 @@
 <template>
   <div class="todo-list">
       <div v-for="(todo,i) in todoList" :key="i" :class="{'todo': true, 'done': todo.done}">
-        <span class="todo__done-marker"></span>
+        <span @click="()=>toggleStatus(todo.id)" class="todo__done-marker"></span>
         <span class="todo__message">{{todo.message}}</span>
-        <span class='todo__remove-btn'><RemoveIcon css-anchor="todo__remove-icon"/></span>
+        <span @click="()=>remove(todo.id)" class='todo__remove-btn'><RemoveIcon css-anchor="todo__remove-icon"/></span>
       </div>
   </div>
 </template>
@@ -16,9 +16,19 @@
 </script>
 
 <script lang="ts">
-  export default {
-    name: "TodoList"
-  }
+  import {defineComponent} from "vue";
+
+  export default defineComponent({
+    name: "TodoList",
+    methods: {
+      toggleStatus (id: number) {
+        this.$emit('toggleTodoStatus', id);
+      },
+      remove (id: number) {
+        this.$emit('removeTodo', id);
+      }
+    }
+  })
 </script>
 
 <style scoped>
@@ -37,6 +47,8 @@
     width: 0;
     white-space: pre-line;
     word-break: break-all;
+    vertical-align: middle;
+    line-height: 1.2;
   }
 
   .todo__done-marker {
