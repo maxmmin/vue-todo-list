@@ -5,7 +5,10 @@
         <h2 class="todo-component__title">My first Vue.js todo app</h2>
         <div class="todo-component__todo-creation">
           <form class="todo-component__todo-creation-form" @submit="onSubmit">
-            <input class="todo-creation-form__input" v-model="currentInput">
+            <input class="todo-creation-form__input"
+                   v-model="currentInput"
+                   placeholder="Take dog to school, walk a child..."
+            />
             <button class="todo-creation-form__submit-btn"><AddIcon css-anchor="todo-creation-form__add-icon" fill="white"/></button>
           </form>
         </div>

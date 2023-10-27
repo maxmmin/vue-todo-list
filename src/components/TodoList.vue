@@ -65,7 +65,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid rgb(255, 251, 125);
+    border: 2px solid rgb(200, 200, 125);
     cursor: pointer;
   }
 
