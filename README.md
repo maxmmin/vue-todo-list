@@ -1,24 +1,4 @@
-# hello-world
+# Simple vue.js todo-list application
 
-## Project setup
-```
-npm install
-```
+See here: [gh pages link](https://maxmmin.github.io/vue-todo-list/)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
