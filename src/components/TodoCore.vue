@@ -4,8 +4,8 @@
       <div class="todo-component__inner">
         <h2 class="todo-component__title">My first Vue.js todo app</h2>
         <div class="todo-component__todo-creation">
-          <form class="todo-component__todo-creation-form">
-            <input class="todo-creation-form__input">
+          <form class="todo-component__todo-creation-form" @submit="onSubmit">
+            <input class="todo-creation-form__input" v-model="currentInput">
             <button class="todo-creation-form__submit-btn"><AddIcon css-anchor="todo-creation-form__add-icon" fill="white"/></button>
           </form>
         </div>
@@ -17,7 +17,7 @@
 <script lang="ts">
 
 
-import {ComponentData, TodoItem} from "@/types/todoTypes";
+import {CoreTodoComponentData, TodoItem} from "@/types/todoTypes";
 import {defineComponent} from "vue";
 import AddIcon from "@/components/icons/AddIcon.vue";
 
@@ -26,35 +26,43 @@ export default defineComponent({
     components: {
       AddIcon
     },
-    data (): ComponentData {
+    data (): CoreTodoComponentData {
       return {
-        toDoList: [],
+        todoList: [],
         currentInput: '',
         lastId: -1
       }
     },
     methods: {
-      addTodoItem () {
+      addTodoItem (message: string) {
+        if (!message) throw new Error("cannot add empty todo");
         const item = this.currentInput;
         const todo: TodoItem = {
           id: ++this.lastId,
           message: item,
           done: false
         }
-        this.toDoList.push(todo);
-        this.currentInput = ''
+        this.todoList.push(todo);
       },
       removeTodoItem (id: number) {
-        const index = this.toDoList.findIndex(toDo=>toDo.id===id);
+        const index = this.todoList.findIndex(toDo=>toDo.id===id);
         if (index>-1) {
-          this.toDoList.splice(index, 1);
+          this.todoList.splice(index, 1);
         } else throw new Error("trying to remove non-existent todo")
       },
       toggleTodoItemStatus (id: number) {
-        const todo = this.toDoList.find(t=>t.id===id);
+        const todo = this.todoList.find(t=>t.id===id);
         if (todo) {
           todo.done = !todo.done;
         } else throw new Error("trying to toggle status of non-existent todo")
+      },
+      onSubmit (e: Event) {
+        e.preventDefault();
+        const message = this.currentInput.trim();
+        if (message) {
+          this.addTodoItem(message);
+          this.currentInput = "";
+        } else alert("Can't add empty todo")
       }
     }
   })

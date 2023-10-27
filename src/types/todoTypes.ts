@@ -4,8 +4,12 @@ export type TodoItem = {
     done: boolean
 };
 
-export type ComponentData = {
-    toDoList: TodoItem[],
+export type CoreTodoComponentData = {
+    todoList: TodoItem[],
     currentInput: string,
     lastId: number
 };
+
+export type TodoListComponentProps = {
+    todoList: TodoItem[]
+}
