@@ -104,9 +104,24 @@ export default defineComponent({
   .todo-component__todo-creation-form {
     width: 100%;
     display: flex;
+    padding: 0;
     height: 45px;
     border-radius: 15px;
     background: #e0e0e0;
+  }
+
+  .todo-creation-form__submit-btn {
+    padding: 5px 15px;
+    height: 100%;
+    border-radius: 15px;
+    margin: 0;
+    background-image: linear-gradient(45deg, rgb(133, 255, 189) 0%, rgb(255, 251, 125) 100%);
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: inline-block;
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
 
   .todo-creation-form__input {
@@ -119,19 +134,9 @@ export default defineComponent({
     flex-grow: 1;
   }
 
-  .todo-creation-form__submit-btn {
-    padding: 5px 15px;
-    border-radius: 15px;
-    background-image: linear-gradient(45deg, rgb(133, 255, 189) 0%, rgb(255, 251, 125) 100%);
-    flex-shrink: 0;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-
   .todo-creation-form__add-icon {
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
   }
 
   .todo-component__todo-list-wrapper {
