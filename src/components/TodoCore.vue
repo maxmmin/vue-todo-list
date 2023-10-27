@@ -114,6 +114,7 @@ export default defineComponent({
     border: none;
     padding: 10px;
     font-size: 17px;
+    width: 0;
     outline: none;
     flex-grow: 1;
   }
@@ -122,6 +123,7 @@ export default defineComponent({
     padding: 5px 15px;
     border-radius: 15px;
     background-image: linear-gradient(45deg, rgb(133, 255, 189) 0%, rgb(255, 251, 125) 100%);
+    flex-shrink: 0;
     border: none;
     outline: none;
     cursor: pointer;
@@ -134,6 +136,12 @@ export default defineComponent({
 
   .todo-component__todo-list-wrapper {
     margin-top: 30px;
+  }
+
+  @media all and (max-width: 576px) {
+    .todo-component__title {
+      text-align: center;
+    }
   }
 
 </style>

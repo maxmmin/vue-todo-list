@@ -74,9 +74,11 @@
     width: 23px;
     height: 23px;
     cursor: pointer;
-    &:hover {
-      background: rgba(0,0,0, 0.1);
-      border-radius: 50%;
+    @media (pointer: fine) {
+      &:hover {
+        background: rgba(0,0,0, 0.1);
+        border-radius: 50%;
+      }
     }
   }
 </style>
