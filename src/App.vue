@@ -8,6 +8,7 @@ import TodoCore from "@/components/TodoCore.vue";
 
 export default defineComponent({
   name: 'App',
+  title: 'Todo App',
   components: {
     TodoCore
   }
