@@ -36,6 +36,16 @@
     display: flex;
     column-gap: 15px;
     max-width: 100%;
+    &.done {
+      & .todo__done-marker {
+        border: 2px solid rgb(133, 255, 189);
+        background: radial-gradient(circle closest-side, rgb(133, 255, 189) 80%, white 20%);
+      }
+
+      & .todo__message {
+        text-decoration: line-through;
+      }
+    }
   }
 
   .todo + .todo {
@@ -57,10 +67,16 @@
     height: 20px;
     border-radius: 50%;
     border: 2px solid rgb(255, 251, 125);
+    cursor: pointer;
   }
 
   .todo__remove-icon {
     width: 23px;
     height: 23px;
+    cursor: pointer;
+    &:hover {
+      background: rgba(0,0,0, 0.1);
+      border-radius: 50%;
+    }
   }
 </style>
