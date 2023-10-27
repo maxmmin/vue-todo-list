@@ -50,7 +50,7 @@ export default defineComponent({
           message: item,
           done: false
         }
-        this.todoList.push(todo);
+        this.todoList.unshift(todo);
       },
       removeTodoItem (id: number) {
         const index = this.todoList.findIndex(toDo=>toDo.id===id);
