@@ -128,4 +128,8 @@ export default defineComponent({
     height: 100%;
   }
 
+  .todo-component__todo-list-wrapper {
+    margin-top: 30px;
+  }
+
 </style>
